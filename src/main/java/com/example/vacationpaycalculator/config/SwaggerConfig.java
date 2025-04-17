@@ -10,10 +10,8 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("Vacation Calculator API")
-                        .version("1.0")
-                        .description("API для расчета отпускных"));
+        return new OpenAPI().info(
+                new Info().title("Vacation Calculator API").version("1.0").description("API для расчета отпускных")
+        );
     }
 }

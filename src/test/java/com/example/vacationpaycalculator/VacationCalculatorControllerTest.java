@@ -29,20 +29,23 @@ public class VacationCalculatorControllerTest {
 
         String url = "/calculate?averageSalary=100000&daysNumber=14&startDate=2024-10-01";
 
-        mockMvc.perform(get(url)).andExpect(status().isOk()).andExpect(content().string("Сумма отпускных составит: 41569,97 руб."));
+        mockMvc.perform(get(url)).andExpect(status().isOk()).andExpect(content()
+                .string("Сумма отпускных составит: 41569,97 руб."));
     }
 
     @Test
     public void testInvalidAverageSalary() throws Exception {
         String url = "/calculate?averageSalary=-100000&daysNumber=14&startDate=2024-10-01";
 
-        mockMvc.perform(get(url)).andExpect(status().isBadRequest()).andExpect(content().string("Неправильно указана средняя зарплата, проверьте данные."));
+        mockMvc.perform(get(url)).andExpect(status().isBadRequest()).andExpect(content()
+                .string("Неправильно указана средняя зарплата, проверьте данные."));
     }
 
     @Test
     public void testInvalidDaysNumber() throws Exception {
         String url = "/calculate?averageSalary=100000&daysNumber=0&startDate=2024-10-01";
 
-        mockMvc.perform(get(url)).andExpect(status().isBadRequest()).andExpect(content().string("Неправильно указано количество дней отпуска, проверьте данные."));
+        mockMvc.perform(get(url)).andExpect(status().isBadRequest()).andExpect(content()
+                .string("Неправильно указано количество дней отпуска, проверьте данные."));
     }
 }
